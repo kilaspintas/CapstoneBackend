@@ -1,28 +1,38 @@
-const {addAccount, getDataAccount, getDataList, updateScore, deleteRoom} = require('./handler')
+const {homePage, addAccount, getDataAccount, getDataList, updateScore, deleteRoom} = require('./handler')
 const routes = [
   {
-    method: 'POST',
-    path: '/index',
-    handler: getDataAccount,
-  },
-  {
     method: 'GET',
-    path: '/index',
+    path: '/',
+    handler: homePage,
+  },{
+    method: 'POST',
+    path: '/api/index',
     handler: addAccount,
   },
   {
     method: 'GET',
-    path: '/index{code}',
+    path: '/api/index',
+    handler: getDataAccount,
+  },
+  {
+    method: 'GET',
+    path: '/api/index/{code}',
     handler: getDataList,
   },
   {
     method: 'PUT',
-    path: '/index{id}',
+    path: '/api/index/{id}',
     handler: updateScore,
+    // JSON DATA IN POSTMAN
+    // {
+    //   "score": 10
+    // }
   },
   {
     method: 'DELETE',
-    path: '/index{code}',
+    path: '/api/index/{code}',
     handler: deleteRoom,
   },
-]
+];
+
+module.exports = routes;

@@ -1,45 +1,53 @@
-const mysql = require('mysql');
+const connection = require('./config')
+const {nanoid} = require('nanoid');
+let {tempId, listUser} = require('./temporaryValue')
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'capstone',
-});
+const userId = nanoid(20);
 
-connection.connect((err) => {
-  if(err) throw err;
-  console.log('Tersambung\n')
-})
-connection.end((err) => {
-  if (err) throw err;
-  console.log('Terputus\n');
-});
-
-const data = {
-  name: 'Irfan',
-  role: 'teacher',
-  code: 80,
-  score: 100
-};
-
+const homePage = (request, h) => {
+  return'Ini Home Page Anjay';
+}
 const addAccount = (request, h) => {
+  const {name, role, code, score} = request.payload;
+  const data = {id: userId, name: name, role: role, code: code, score: score};
+  tempId = userId;
   connection.query('INSERT INTO data SET ?', data, (err, result) => {
     if (err) throw err;
-    console.log('New data inserted.');
-  });
+  });  
 }
 const getDataAccount = (request, h) => {
-  
+  connection.query('SELECT * FROM data WHERE id = ?',userId, (err, result) => {
+    const hasil = JSON.parse(JSON.stringify(result));
+    if (err) throw err;
+    else if(result) console.log('Success add id '+hasil[0].id);
+  });     
 }
 const getDataList = (request, h) => {
-  
+  const {code} = request.params;
+  connection.query('SELECT * FROM data WHERE code = ?',code, (err, result) => {
+    const hasil = JSON.parse(JSON.stringify(result));
+    if (err) throw err;
+    else if(result) console.log(hasil[0].id);
+    for(i=0; i<hasil.length; i++){
+      listUser[i] = [hasil[i].name, hasil[i].score];
+    }
+    console.log(listUser)
+  });       
 }
 const updateScore = (request, h) => {
-  
+  const {id} = request.params;
+  const {score} = request.payload;
+  connection.query('UPDATE data SET score = ? WHERE id = ?',[score,id], (err, result) => {
+    if (err) throw err;
+    else if(result) console.log(result);
+  }); 
 }
 const deleteRoom = (request, h) => {
-  
+  const {code} = request.params;
+  connection.query('UPDATE data SET score = NULL, code = NULL WHERE code = ?',code, (err, result) => {
+    if (err) throw err;
+    else if(result) console.log(result);
+  }); 
 }
 
-module.exports = {addAccount, getDataAccount, getDataList, updateScore, deleteRoom};
+module.exports = {homePage, addAccount, getDataAccount, getDataList, updateScore, deleteRoom};
