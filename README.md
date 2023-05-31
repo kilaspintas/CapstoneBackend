@@ -3,3 +3,5 @@
 
 Create user, Get data user, Update score, Delete room code #done
 Need more improvement and respon message
+
+Testing CRUD in POSTMAN
