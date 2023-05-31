@@ -1,0 +1,15 @@
+{
+  "name": "capstonebackend",
+  "version": "1.0.0",
+  "description": "backend API for capstone project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cloud Team",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^21.3.0",
+    "nanoid": "^3.3.4"
+  }
+}
