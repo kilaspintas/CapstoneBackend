@@ -10,7 +10,7 @@ Testing CRUD in POSTMAN
 In windows use XAMPP for Apache web server and SQL Server 
 
 In development run using npm run start-dev
-
+```
 Create User :
 
 http://localhost:9000/api/index
@@ -42,7 +42,7 @@ http://localhost:9000/api/index/{code}
 code = Room Code
 
 Using DELETE method
-
+```
 
 Create Table with name "data" and import the sql file.
 
