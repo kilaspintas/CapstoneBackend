@@ -44,7 +44,7 @@ code = Room Code
 Using DELETE method
 
 
-Create Table with name "data" and import the sql file.
+Change database information in [file](https://github.com/kilaspintas/CapstoneBackend/blob/main/src/config.js) 
 
 
 
