@@ -44,7 +44,7 @@ code = Room Code
 Using DELETE method
 
 
-Change database information in [file](https://github.com/kilaspintas/CapstoneBackend/blob/main/src/config.js) 
+Database config in this [file](https://github.com/kilaspintas/CapstoneBackend/blob/main/src/config.js) 
 
 
 
