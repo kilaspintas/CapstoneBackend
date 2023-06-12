@@ -1,51 +1,23 @@
-# Cloud team backend
- Backend API for Capstone Project
+# Penggunaan API
 
-Create user, Get data user, Update score, Delete room code 
+## Upload file menggunakan metode POST
 
-Need more improvement and respon message
-
-Testing CRUD in POSTMAN
-
-In windows use XAMPP for Apache web server and SQL Server 
-
-In development run using npm run start-dev
-
-## Create User :
+```bash
+  https://ngaksoro-or3mcczqgq-uc.a.run.app/upload
 ```
-http://localhost:9000/api/index
+## Menampilkan seluruh file yang telah di upload
+
+```bash
+  https://ngaksoro-or3mcczqgq-uc.a.run.app/ml-storage
 ```
-Using POST method 
+## Menampilkan list asset dan jawaban untuk soal
 
-## Read User :
+```bash
+  https://ngaksoro-or3mcczqgq-uc.a.run.app/soal
 ```
-http://localhost:9000/api/index
+## Menampilkan seluruh asset yang dibutuhkan pada aplikasi
 
-http://localhost:9000/api/index/{code}
+```bash
+  https://ngaksoro-or3mcczqgq-uc.a.run.app/assets
 ```
-code = Room Code
-
-Using GET method
-
-## Update Score
-```
-http://localhost:9000/api/index/{id}
-```
-id = user ID generate by nanoid
-
-Using PUT method
-
-## Delete Room Code and All Score in the Room
-```
-http://localhost:9000/api/index/{code}
-```
-code = Room Code
-
-Using DELETE method
-
-
-Database config in this [file](https://github.com/kilaspintas/CapstoneBackend/blob/main/src/config.js) 
-
-
-
-
+    
